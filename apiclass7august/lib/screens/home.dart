@@ -34,7 +34,7 @@ class _HomeState extends State<Home> {
                 itemCount: snapshot.data.data.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(snapshot.data.data[index].names),
+                    title: Text(snapshot.data.data[index].name),
                     subtitle: Text("${snapshot.data.data[index].id}"),
                     trailing: Wrap(children: [
                       IconButton(
@@ -42,9 +42,12 @@ class _HomeState extends State<Home> {
                             setState(() {
                               updateData(
                                   model: Data(
-                                      name: "Updated name",
-                                      email: "Updated email",
-                                      username: "Updated name"),
+                                      name: "Sadaf Mansoor Updated ",
+                                      email: "Sadaf04 Updated email",
+                                      username: "SadafW Updated username",
+                                      phone:" 03333334",
+                                      website: "dnkdfndjdnf",
+                                      ),
                                   id: snapshot.data.data[index].id);
                             });
                           },
