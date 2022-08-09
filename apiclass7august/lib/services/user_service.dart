@@ -3,28 +3,35 @@ import 'dart:convert';
 
 import 'package:practiceoftest/model/user_model.dart';
 
-getUsers() async {
-  List userList = [];
-  String url = 'https://maaz-api.tga-edu.com/api/users';
-
-  var response = await http.get(
-    Uri.parse(url),
-  );
-  var data = jsonDecode(response.body);
-  for (var i in data) {
-    userList.add(UserModel.fromJson(i));
-  }
-
-  return userList;
+//get function
+getUser() async {
+  var url = Uri.parse("https://maaz-api.tga-edu.com/api/users");
+  var response = await http.get(url);
+  var responseData = jsonDecode(response.body);
+  return UserModel.fromJson(responseData);
 }
 
-postData({required Data user}) async {
-  var url = Uri.parse('https://maaz-api.tga-edu.com/api/users');
-  var response = await http.post(url,
-      headers: {
-        "Conent-type": "application/json",
-        "Accept": "application/json"
-      },
-      body: jsonEncode(user.toJson()));
-  print(response.body);
+//post function
+postData(Data model) async {
+  var uri = Uri.parse("https://maaz-api.tga-edu.com/api/users");
+  await http.post(uri,
+      headers: {'content-type': 'applicattion/json'},
+      body: jsonEncode(model.toJson()));
+}
+
+//update function
+updateData({required Data model, required id}) async {
+  var uri = Uri.parse('https://maaz-api.tga-edu.com/api/users/${id}');
+  await http.put(uri,
+      headers: {'content-type': 'applicattion/json'},
+      body: jsonEncode(model.toJson()));
+}
+
+//delete function
+deleteData({required id}) async {
+  var uri = Uri.parse('https://maaz-api.tga-edu.com/api/users/${id}');
+  await http.delete(
+    uri,
+    headers: {'content-type': 'applicattion/json'},
+  );
 }

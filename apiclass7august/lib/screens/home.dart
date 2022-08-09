@@ -17,15 +17,56 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-            child: ElevatedButton(
-      onPressed: () async {
-        await postData(user: Data(
-          name: "sadaf", email: "absd", username: "dvsjcskjcb"
-        ));
-            
-      },
-      child: Icon(Icons.add),
-    )));
+      appBar: AppBar(
+        title: ElevatedButton(
+          onPressed: () async {
+            await postData(
+                Data(name: "sadaf", email: "absd", username: "dvsjcskjcb"));
+          },
+          child: Text("Add Data"),
+        ),
+      ),
+      body: FutureBuilder(
+          future: getUser(),
+          builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data.data.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(snapshot.data.data[index].names),
+                    subtitle: Text("${snapshot.data.data[index].id}"),
+                    trailing: Wrap(children: [
+                      IconButton(
+                          onPressed: () {
+                            setState(() {
+                              updateData(
+                                  model: Data(
+                                      name: "Updated name",
+                                      email: "Updated email",
+                                      username: "Updated name"),
+                                  id: snapshot.data.data[index].id);
+                            });
+                          },
+                          icon: const Text("update")),
+                      IconButton(
+                          onPressed: () {
+                            setState(() {
+                              deleteData(id: snapshot.data.data[index].id);
+                            });
+                          },
+                          icon: Text("Delete"))
+                    ]),
+                  );
+                },
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          }),
+    
+    );
   }
 }
