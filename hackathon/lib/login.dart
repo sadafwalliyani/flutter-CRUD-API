@@ -77,7 +77,7 @@ signIntoApp() async {
                                 ),
                                 hintText: 'Enter Your E-mail',
                                 prefixIcon: Icon(
-                                  Icons.email,
+                                  Icons.facebook,
                                   color: Color(0xffFE2550),
                                 ),
                                 fillColor: Colors.white70),
