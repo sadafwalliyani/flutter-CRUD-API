@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medicalapp/view/signIn.dart';
-import 'package:medicalapp/view/splashScreens/splashScreen.dart';
+import 'package:googlemaps/maps.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
-      debugShowCheckedModeBanner: false,
-      
-      home: SplashScreen(),
-    );
+       home: maps(),
+      );
   }
 }
