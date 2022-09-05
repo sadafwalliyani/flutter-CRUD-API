@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:googlemaps/maps.dart';
+import 'package:googlemaps/polyline.dart';
+import 'package:googlemaps/sample.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       home: maps(),
+      debugShowCheckedModeBanner: false,
+       home: 
+       //maps(),
+       //MapSample(),
+      polyLineScreen(),
       );
   }
 }
