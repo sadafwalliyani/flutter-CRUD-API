@@ -11,25 +11,28 @@ class maps extends StatefulWidget {
 }
 
 class _mapsState extends State<maps> {
+  //step-1 google map fun
   static const double _defaultLat = 8.85577417427599;
   static const double _defaultLng = 38.81151398296511;
-  static const CameraPosition _defaultLocation = CameraPosition(
-      bearing: 192.83349013799,
-      target: LatLng(
-        _defaultLat,
-        _defaultLng,
-      ),
-      zoom: 15);
-
+  static const CameraPosition _defaultLocation = 
+  CameraPosition(target: LatLng(_defaultLat,_defaultLng,),zoom: 15);
+ 
+ //stap-2 
+ MapType _currentMapType = MapType.normal;
+  void _changeMapType() {
+    setState(() {
+      _currentMapType = _currentMapType == MapType.normal
+          ? MapType.satellite
+          : MapType.normal;
+    });
+  }
   late final GoogleMapController _googleMapController;
-
-  MapType _currentMapType = MapType.normal;
-
-  final Set<Marker> _markers = {};
+  //step-3 marker
+final Set<Marker> _markers = {};
   void _addMarker() {
     setState(() {
       _markers.add(Marker(
-          markerId: MarkerId('defaultLocaation'),
+          markerId: MarkerId('defaultLocation'),
           position: _defaultLocation.target,
           icon: BitmapDescriptor.defaultMarker,
           infoWindow: InfoWindow(
@@ -38,16 +41,8 @@ class _mapsState extends State<maps> {
           )));
     });
   }
-
-  void _changeMapType() {
-    setState(() {
-      _currentMapType = _currentMapType == MapType.normal
-          ? MapType.satellite
-          : MapType.normal;
-    });
-  }
-
-  Future<void> _moveToNewLocation() async {
+//step-3 move location
+Future<void> _moveToNewLocation() async {
     const _newPosition = LatLng(40.7128, -74.0060);
     _googleMapController
         .animateCamera(CameraUpdate.newLatLngZoom(_newPosition, 15));
@@ -56,7 +51,7 @@ class _mapsState extends State<maps> {
           markerId: MarkerId('newLocation'),
           position: _newPosition,
           infoWindow: InfoWindow(
-            title: 'Pakistan',
+            title: 'New York',
             snippet: 'The Best Palce',
           ));
       _markers
@@ -80,14 +75,14 @@ class _mapsState extends State<maps> {
     });
   }
 
-  static final Polyline _polyline = Polyline(
-    polylineId: PolylineId('_polyline'),
-    points: [
-      LatLng(37.42796133580664, -122.085749655962),
-      LatLng(37.42796133580664, -122.085749655962),
-    ],
-    width: 5,
-  );
+  // static final Polyline _polyline = Polyline(
+  //   polylineId: PolylineId('_polyline'),
+  //   points: [
+  //     LatLng(37.42796133580664, -122.085749655962),
+  //     LatLng(37.42796133580664, -122.085749655962),
+  //   ],
+  //   width: 5,
+  // );
 
   @override
   Widget build(BuildContext context) {

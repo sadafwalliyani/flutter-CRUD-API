@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:googlemaps/maps.dart';
 import 'package:googlemaps/polyline.dart';
 import 'package:googlemaps/sample.dart';
@@ -16,9 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
        home: 
-       //maps(),
-       //MapSample(),
-      polyLineScreen(),
+  //polyLineScreen()
+      maps(),
+//MapSample(),
+      
       );
   }
 }
