@@ -1,4 +1,6 @@
 import 'package:cam_scanner/home_screen.dart';
+import 'package:cam_scanner/polyLines.dart';
+import 'package:cam_scanner/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: home_screen(),
+      home: 
+      //home_screen(),
+      HomeScreen()
+      //polyLinesScreen(),
     );
   }
 }
