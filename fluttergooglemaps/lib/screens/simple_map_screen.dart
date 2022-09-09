@@ -21,7 +21,7 @@ class _SimpleMapScreenState extends State<SimpleMapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Simple Google Map"),
+        title: const Text("Lake View"),
         centerTitle: true,
       ),
       body: GoogleMap(

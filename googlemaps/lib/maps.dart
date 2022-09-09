@@ -139,6 +139,7 @@ Future<void> _moveToNewLocation() async {
               ),
             )
           ],
-        ));
+        )
+        );
   }
 }
