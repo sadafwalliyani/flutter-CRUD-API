@@ -56,7 +56,7 @@ class pictureslider extends StatelessWidget {
           initialPage: 2,
         ),
       ),
-      RaisedButton(
+      ElevatedButton(
         onPressed: () => buttonCarouselController.nextPage(
             duration: Duration(milliseconds: 300), curve: Curves.linear),
         child: Text('→'),

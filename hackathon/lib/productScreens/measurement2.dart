@@ -34,19 +34,20 @@ class _measurement2State extends State<measurement2> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                  icon: ImageIcon(AssetImage('assests/backarrow.png',
-                  )),
-                  iconSize: 50,
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => bottomNhome()));
-                  },
-                ),
-                SizedBox(
+                      icon: ImageIcon(AssetImage(
+                        'assests/backarrow.png',
+                      )),
+                      iconSize: 50,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => bottomNhome()));
+                      },
+                    ),
+                    SizedBox(
                       width: 100,
                     ),
-                            
-                  
                     Row(
                       children: [
                         Image.asset(
@@ -54,19 +55,18 @@ class _measurement2State extends State<measurement2> {
                           height: 210,
                           width: 50,
                         ),
-                     SizedBox(
-                      width: 2,
+                        SizedBox(
+                          width: 2,
+                        ),
+                        Image.asset(
+                          'assests/Vector3.png',
+                          height: 210,
+                          width: 50,
+                        ),
+                      ],
                     ),
-                    Image.asset(
-                      'assests/Vector3.png',
-                      height: 210,
-                      width: 50,
-                    ),  ],
-                    ),
-                   
                   ],
                 ),
-
                 Image(
                   image: AssetImage(
                     'assests/screen4.png',
@@ -127,14 +127,14 @@ class _measurement2State extends State<measurement2> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                                      new GestureDetector(
-  onTap: () {
-    Navigator.push(context ,     MaterialPageRoute(builder: (context) => measurement()));
-  },
-  child: 
-  graytxt("INFO")
-),
-   
+                    new GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => measurement()));
+                        },
+                        child: graytxt("INFO")),
                     Text(
                       "MEASUREMENTS",
                       style: GoogleFonts.raleway(
@@ -143,26 +143,25 @@ class _measurement2State extends State<measurement2> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    
                   ],
                 ),
-                 SingleChildScrollView(
+                SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
-                  
-                   child: Row(
-
+                  child: Row(
                     children: [
-                      SizedBox(width: 200,),
-                   Image(
-                    image: AssetImage(
-                      'assests/Line.png',
-                    ),
-                    height:20,
-                    width: 170,
-                                 ),
-                    ],),
-                 ),
-                
+                      SizedBox(
+                        width: 200,
+                      ),
+                      Image(
+                        image: AssetImage(
+                          'assests/Line.png',
+                        ),
+                        height: 20,
+                        width: 170,
+                      ),
+                    ],
+                  ),
+                ),
                 SizedBox(
                   height: 15,
                 ),
@@ -201,7 +200,6 @@ class _measurement2State extends State<measurement2> {
                 SizedBox(
                   height: 10,
                 ),
-
                 Row(
                   children: [
                     pinkbtn("Yes", 100),
@@ -211,7 +209,6 @@ class _measurement2State extends State<measurement2> {
                     graytxt("No"),
                   ],
                 ),
-
                 Column(
                   children: [
                     Image(
@@ -224,37 +221,45 @@ class _measurement2State extends State<measurement2> {
                     graytxt("Do you want to use this material"),
                   ],
                 ),
-                  SizedBox(
+                SizedBox(
                   height: 8,
                 ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement<void, void>(
+                        context,
+                        MaterialPageRoute<void>(
+                            builder: (context) => specifymaterial()));
 
-                RaisedButton(
-    onPressed: () {
-       Navigator.pushReplacement<void,void>(context,
-                    MaterialPageRoute<void>(builder: (context) => specifymaterial()));
-    },
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
-    padding: EdgeInsets.all(0.0),
-    child: Ink(
-      decoration: BoxDecoration(
-        color: Color(0xffFE2550),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Container(
-        constraints: BoxConstraints(maxWidth:200, maxHeight: 50),
-        alignment: Alignment.center,
-        child: Text(
-          "Add To Bag",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    ),
-  )
+                    shape:
+                    RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(80.0));
+                    padding:
+                    EdgeInsets.all(0.0);
+                  },
+
+                  // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                  // padding: EdgeInsets.all(0.0),
+                  child: Ink(
+                    decoration: BoxDecoration(
+                      color: Color(0xffFE2550),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Container(
+                      constraints: BoxConstraints(maxWidth: 200, maxHeight: 50),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Add To Bag",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
               ]),
             )),
       ),

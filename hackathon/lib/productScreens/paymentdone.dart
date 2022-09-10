@@ -48,13 +48,13 @@ class _paymentdoneState extends State<paymentdone> {
          graytxt("Thanks!!!"),
          SizedBox(height: 50,),
         // pinkbtn("Continue Shopping",250,),
-        RaisedButton(
+        ElevatedButton(
     onPressed: () {
        Navigator.pushReplacement<void,void>(context,
                     MaterialPageRoute<void>(builder: (context) => bottomNhome()));
-    },
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
-    padding: EdgeInsets.all(0.0),
+ 
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0));
+    padding: EdgeInsets.all(0.0);},
     child: Ink(
       decoration: BoxDecoration(
         color: Color(0xffFE2550),
