@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hackfinal/view/bottomnavigation/custom_animated_bottom_bar.dart';
+import 'package:hackfinal/view/bottomnavigation/favorite.dart';
+import 'package:hackfinal/view/bottomnavigation/home.dart';
+import 'package:hackfinal/view/bottomnavigation/profilementor.dart';
+import 'package:hackfinal/view/bottomnavigation/videoscreen.dart';
 
 class bottomNavBar extends StatefulWidget {
 
@@ -14,11 +18,6 @@ class _bottomNavBarState extends State<bottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Text("Custom Animated Bottom Navigation Bar"),
-          backgroundColor: Colors.green[200],
-        ),
         body: getBody(),
         bottomNavigationBar: _buildBottomBar()
     );
@@ -35,31 +34,32 @@ class _bottomNavBarState extends State<bottomNavBar> {
       onItemSelected: (index) => setState(() => _currentIndex = index),
       items: <BottomNavyBarItem>[
         BottomNavyBarItem(
-          icon: Icon(Icons.apps),
+          icon: Icon(Icons.home),
           title: Text('Home'),
           activeColor: Colors.green,
           inactiveColor: _inactiveColor,
           textAlign: TextAlign.center,
+          
         ),
         BottomNavyBarItem(
-          icon: Icon(Icons.people),
-          title: Text('Users'),
+          icon: Icon(Icons.play_arrow),
+          title: Text('Play'),
           activeColor: Colors.purpleAccent,
           inactiveColor: _inactiveColor,
           textAlign: TextAlign.center,
         ),
         BottomNavyBarItem(
-          icon: Icon(Icons.message),
+          icon: Icon(Icons.favorite_outline_outlined),
           title: Text(
-            'Messages ',
+            'Favorite',
           ),
           activeColor: Colors.pink,
           inactiveColor: _inactiveColor,
           textAlign: TextAlign.center,
         ),
         BottomNavyBarItem(
-          icon: Icon(Icons.settings),
-          title: Text('Settings'),
+          icon: Icon(Icons.person),
+          title: Text('Profile'),
           activeColor: Colors.blue,
           inactiveColor: _inactiveColor,
           textAlign: TextAlign.center,
@@ -73,19 +73,19 @@ class _bottomNavBarState extends State<bottomNavBar> {
     List<Widget> pages = [
       Container(
         alignment: Alignment.center,
-        child: Text("Home",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+        child: Home()
       ),
       Container(
         alignment: Alignment.center,
-        child: Text("Users",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+        child: videoScreen(),
       ),
       Container(
         alignment: Alignment.center,
-        child: Text("Messages",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+        child: favoriteLesson(),
       ),
       Container(
         alignment: Alignment.center,
-        child: Text("Settings",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+        child: ProfileMentor(),
       ),
     ];
     return IndexedStack(

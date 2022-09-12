@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -14,39 +16,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType
-              .fixed, //if you dont want by clicking apni marzi ka color background color not work after clicking on this
-          selectedFontSize: 20,
-          unselectedFontSize: 15,
-          iconSize: 15,
-          selectedItemColor: Color.fromARGB(255, 146, 216, 189),
-          unselectedItemColor: Color.fromARGB(255, 58, 56, 56),
-          backgroundColor: Color.fromARGB(255, 250, 252, 251),
-          currentIndex: currentindex,
-          onTap: (index) => setState(() {
-                currentindex =
-                    index; //current index shuro me 0 jaise hi tap kro current index usk brabr
-              }), //if current index 0 then home slected and colors will be blue other will be grey
-
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: "home",
-                backgroundColor: Colors.red),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.play_arrow),
-                label: "add",
-                backgroundColor: Colors.purple),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.favorite_outline_outlined),
-                label: "profile",
-                backgroundColor: Colors.pink),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: "profile",
-                backgroundColor: Colors.pink),
-          ]),
       body: SingleChildScrollView(
         child: Container(
             padding: EdgeInsets.all(20),
@@ -54,16 +23,19 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 30),
                   child: Row(children: [
                     Text(
                       "Hi Hafiz 👋",
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 20,
                           color: Color.fromARGB(255, 53, 59, 53),
                           fontWeight: FontWeight.bold),
                     ),
                   ]),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
                 Row(
                   children: [
@@ -71,7 +43,7 @@ class _HomeState extends State<Home> {
                       child: Text(
                         "Let’s Find Your Course!",
                         style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 18,
                             color: Color.fromARGB(255, 53, 59, 53),
                             fontWeight: FontWeight.bold),
                       ),
@@ -106,10 +78,12 @@ class _HomeState extends State<Home> {
                 Row(
                   children: [
                     Container(
-                      width: 360,
+                     width: 350,
                       height: 50,
                       child: TextField(
+                        
                           decoration: InputDecoration(
+                            
                               filled: true,
                               fillColor: Color.fromRGBO(240, 240, 240, 1),
                               hintText: "serach here",
@@ -125,7 +99,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
                 SizedBox(
-                  height: 70,
+                  height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -175,30 +149,39 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   height: 20,
                 ),
-                Row(
-                  children: [
-                    Container(
-                        height: 120,
-                        width: 320,
+              Container(
+                        height: 150,
+                     //   width: 500,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(
-                                image: AssetImage("assests/CIRCLEE.PNG"),
-                                fit: BoxFit.cover)))
+                                image: AssetImage("assests/img.PNG"),
+                                fit: BoxFit.cover))),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Recommendation Course",
+                      style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 5, 5, 5),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    InkWell(
+                      child: Text(
+                        "See all",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 165, 240, 155),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
-                Row(
-                  children: [
-                    Container(
-                        height: 100,
-                        width: 320,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(
-                                image: AssetImage("assests/second.PNG"),
-                                fit: BoxFit.cover)))
-                  ],
-                )
+                SizedBox(height: 2,),
+                Image.asset("assests/second.PNG",
+                // height: 300,
+                width: 500,),
               ],
             )),
       ),

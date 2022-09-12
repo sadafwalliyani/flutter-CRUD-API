@@ -1,10 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hackfinal/modelview/homemodel.dart';
 import 'package:hackfinal/view/bottomnavigation/bnbar.dart';
-import 'package:hackfinal/view/bottomnavigation/bottom_nav_controller.dart';
-import 'package:hackfinal/view/bottomnavigation/home.dart';
-import 'package:hackfinal/view/detailcourse.dart';
-import 'package:hackfinal/view/lessons/toolbox.dart';
+import 'package:hackfinal/view/lessons/videoListView.dart';
 import 'package:hackfinal/view/splashscreen.dart';
 
 void main() {
@@ -18,12 +15,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-     home:
-  // DetailCourse()
-  //  SplashScreen()
-  bottomNavBar()
-
-      );
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primaryColor: Colors.white,
+          textTheme: const TextTheme(
+            headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
+            headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+            bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+          ),
+        ),
+        home:
+            // DetailCourse()
+             SplashScreen()
+            //bottomNavBar()
+          // videoListView()
+            );
   }
 }
