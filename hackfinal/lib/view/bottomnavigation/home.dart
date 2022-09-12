@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:hackfinal/view/bottomnavigation/bottom_nav_controller.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

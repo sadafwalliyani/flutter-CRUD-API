@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import '../progress.dart';
-import '../variable.dart';
+import '../../services/variables/variable.dart';
 
 
 class ContinueLesson extends StatefulWidget {

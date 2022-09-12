@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackfinal/view/variable.dart';
+import 'package:hackfinal/services/variables/variable.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 Widget Progress(Color color1, String text1, text2) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackfinal/modelview/homemodel.dart';
+import 'package:hackfinal/view/bottomnavigation/bnbar.dart';
 import 'package:hackfinal/view/bottomnavigation/bottom_nav_controller.dart';
 import 'package:hackfinal/view/bottomnavigation/home.dart';
 import 'package:hackfinal/view/detailcourse.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
      home:
   // DetailCourse()
-   SplashScreen()
+  //  SplashScreen()
+  bottomNavBar()
 
       );
   }
